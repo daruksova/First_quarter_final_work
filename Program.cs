@@ -9,4 +9,10 @@ string[] ReadString()
     return(arr);
 }
 
+void PrintArray(string[] arr)
+{
+    Console.WriteLine("[" + String.Join(", ", arr) + "]");
+}
+
 string[] array = ReadString();
+PrintArray(array);
