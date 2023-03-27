@@ -6,7 +6,7 @@
 string[] ReadString()
 {
     Console.Write("Введите исходный массив строк: ");
-    string[] arr = Console.ReadLine().Split(" ");
+    string[] arr = Console.ReadLine()!.Split(" ");
     return(arr);
 }
 
@@ -30,6 +30,25 @@ int ResultArrayLength(string[] arr)
     return count;
 }
 
+// Создает массив, в котором будут храниться все значения длиной <= 3
+string[] InitialResultArray(string[] arr, int newArrayLength)
+{
+    string[] resultArray = new string[newArrayLength];
+    int count = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3)
+        {
+            resultArray[count] = arr[i];
+            count++;
+        }
+    }
+    return resultArray;
+}
+
 string[] array = ReadString();
+Console.Write("Исходный массив: ");
 PrintArray(array);
-System.Console.WriteLine(ResultArrayLength(array));
+string[] resultArray = InitialResultArray(array, ResultArrayLength(array));
+Console.Write("Конечный массив: ");
+PrintArray(resultArray);
